@@ -9,7 +9,6 @@
     "copyright": "Copyright (c) 2023 Your Company",
     "sep": "/",
     "kotlin_dir": "{{ cookiecutter.org_name.replace('.', cookiecutter.sep) }}{{ cookiecutter.sep }}{{ cookiecutter.project_name }}{{ cookiecutter.sep }}",
-    "windows_tcp_port": 63777,
     "hide_loading_animation": true,
     "team_id": "",
     "base_url": "/",
