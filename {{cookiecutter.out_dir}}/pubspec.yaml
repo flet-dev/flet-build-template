@@ -43,6 +43,7 @@ flutter:
 
   assets:
     - app/app.zip
+    - app/app.hash
 
 # dart run flutter_launcher_icons
 flutter_launcher_icons:
