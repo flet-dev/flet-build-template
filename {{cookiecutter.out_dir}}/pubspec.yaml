@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  serious_python: ^0.6.1
+  serious_python: ^0.7.0
   # serious_python:
   #   git:
   #     url: https://github.com/flet-dev/serious-python
@@ -43,6 +43,7 @@ flutter:
 
   assets:
     - app/app.zip
+    - app/app.zip.hash
 
 # dart run flutter_launcher_icons
 flutter_launcher_icons:
