@@ -177,6 +177,9 @@ Future<String?> runPythonApp() async {
     socketAddr = "$tcpAddr:${outSocketServer.port}";
   } else {
     socketAddr = "stdout.sock";
+    if (await File(socketAddr).exists()) {
+      await File(socketAddr).delete();
+    }
     outSocketServer = await ServerSocket.bind(
         InternetAddress(socketAddr, type: InternetAddressType.unix), 0);
     debugPrint('Python output Socket Server is listening on $socketAddr');
