@@ -23,7 +23,7 @@ final hideLoadingPage =
 const outLogFilename = "out.log";
 const errorExitCode = 100;
 
-const createControlFactories = [
+var createControlFactories = [
 {% for dep in cookiecutter.flutter.dependencies %}
 {{ dep }}.createControl,
 {% endfor %}
