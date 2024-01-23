@@ -9,6 +9,10 @@ import 'package:path/path.dart' as path;
 import 'package:serious_python/serious_python.dart';
 import 'package:url_strategy/url_strategy.dart';
 
+{% for dep in cookiecutter.flutter_dependencies %}
+import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
+{% endfor %}
+
 const bool isProduction = bool.fromEnvironment('dart.vm.product');
 
 const assetPath = "app/app.zip";
@@ -18,6 +22,12 @@ final hideLoadingPage =
         true;
 const outLogFilename = "out.log";
 const errorExitCode = 100;
+
+const createControlFactories = [
+{% for dep in cookiecutter.flutter_dependencies %}
+{{ dep }}.createControl,
+{% endfor %}
+];
 
 const pythonScript = """
 import certifi, os, runpy, socket, sys, traceback
