@@ -7,7 +7,9 @@
     "org_name": "com.flet",
     "company_name": "Your Company",
     "copyright": "Copyright (c) 2023 Your Company",
-    "flutter_dependencies": [],
+    "flutter": {
+        "dependencies": []
+    },
     "sep": "/",
     "kotlin_dir": "{{ cookiecutter.org_name.replace('.', cookiecutter.sep) }}{{ cookiecutter.sep }}{{ cookiecutter.project_name }}{{ cookiecutter.sep }}",
     "hide_loading_animation": true,
