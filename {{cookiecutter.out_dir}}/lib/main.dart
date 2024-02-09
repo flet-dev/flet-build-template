@@ -29,10 +29,6 @@ var createControlFactories = [
 {% endfor %}
 ];
 
-{% for dep in cookiecutter.flutter.dependencies %}
-{{ dep }}.ensureInitialized();
-{% endfor %}
-
 const pythonScript = """
 import certifi, os, runpy, socket, sys, traceback
 
@@ -92,6 +88,10 @@ void main() async {
     // ignore: avoid_returning_null_for_void
     debugPrint = (String? message, {int? wrapWidth}) => null;
   }
+
+  {% for dep in cookiecutter.flutter.dependencies %}
+  {{ dep }}.ensureInitialized();
+  {% endfor %}
 
   runApp(FutureBuilder(
       future: prepareApp(),
