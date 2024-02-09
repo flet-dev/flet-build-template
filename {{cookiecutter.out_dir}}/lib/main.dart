@@ -29,6 +29,10 @@ var createControlFactories = [
 {% endfor %}
 ];
 
+{% for dep in cookiecutter.flutter.dependencies %}
+{{ dep }}.ensureInitialized();
+{% endfor %}
+
 const pythonScript = """
 import certifi, os, runpy, socket, sys, traceback
 
