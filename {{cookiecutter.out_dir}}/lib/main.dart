@@ -103,6 +103,7 @@ void main() async {
                   pageUrl: pageUrl,
                   assetsDir: assetsDir,
                   hideLoadingPage: hideLoadingPage,
+                  createControlFactories: createControlFactories
                 )
               : FutureBuilder(
                   future: runPythonApp(),
@@ -121,6 +122,7 @@ void main() async {
                         pageUrl: pageUrl,
                         assetsDir: assetsDir,
                         hideLoadingPage: hideLoadingPage,
+                        createControlFactories: createControlFactories
                       );
                     }
                   });
