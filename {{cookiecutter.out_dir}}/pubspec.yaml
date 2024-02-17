@@ -27,7 +27,7 @@ dependencies:
   
   path: ^1.8.3
   url_strategy: ^0.2.0
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
