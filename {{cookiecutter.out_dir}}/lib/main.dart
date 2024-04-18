@@ -35,6 +35,9 @@ import certifi, os, runpy, socket, sys, traceback
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 os.environ["SSL_CERT_FILE"] = certifi.where()
 
+# fix for: https://github.com/flet-dev/serious-python/issues/85#issuecomment-2065000974
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+
 if os.getenv("FLET_PLATFORM") == "android":
     import ssl
 
