@@ -5,6 +5,9 @@
         android:label="{{ cookiecutter.product_name }}"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+                android:name="io.flutter.embedding.android.EnableImpeller"
+                android:value="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
