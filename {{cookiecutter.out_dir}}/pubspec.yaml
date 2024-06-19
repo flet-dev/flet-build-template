@@ -27,6 +27,11 @@ dependency_overrides:
       url: https://github.com/flet-dev/serious-python.git
       path: src/serious_python_android
       ref: 0.7-fix
+  serious_python_platform_interface:
+    git:
+      url: https://github.com/flet-dev/serious-python.git
+      path: src/serious_python_platform_interface
+      ref: 0.7-fix
 
 dev_dependencies:
   flutter_test:
