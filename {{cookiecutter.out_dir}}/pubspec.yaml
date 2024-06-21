@@ -39,9 +39,6 @@ dependency_overrides:
 # {% endif %}
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
   flutter_launcher_icons: "^0.13.1"
   flutter_native_splash: ^2.3.6
   flutter_lints: ^2.0.0
