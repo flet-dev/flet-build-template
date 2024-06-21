@@ -11,10 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  serious_python: ^0.7.0
+  serious_python: ^0.7.1
   flet: ^0.23.1
   
-  path: ^1.8.3
+  path: ^1.9.0
   url_strategy: ^0.2.0
   cupertino_icons: ^1.0.6
 
@@ -38,22 +38,7 @@ dependency_overrides:
       ref: android-namespace
 # {% endif %}
 
-  serious_python_android:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      path: src/serious_python_android
-      ref: 0.7-fix
-
-  serious_python_platform_interface:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      path: src/serious_python_platform_interface
-      ref: 0.7-fix
-
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
   flutter_launcher_icons: "^0.13.1"
   flutter_native_splash: ^2.3.6
   flutter_lints: ^2.0.0
