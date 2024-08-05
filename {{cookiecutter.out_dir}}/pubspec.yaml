@@ -21,6 +21,7 @@ dependencies:
 dependency_overrides:
   wakelock_plus: ^1.2.5
   package_info_plus: ^8.0.0
+  web: ^1.0.0
 
 # {% if 'flet_audio_recorder' in cookiecutter.flutter.dependencies %}
   record: ^5.1.1
