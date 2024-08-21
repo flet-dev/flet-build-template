@@ -26,10 +26,6 @@ dependency_overrides:
   record: ^5.1.1
 # {% endif %}
 
-# {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
-  geolocator: ^13.0.1
-# {% endif %}
-
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
   flutter_native_splash: ^2.3.6
