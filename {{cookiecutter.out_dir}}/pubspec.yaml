@@ -27,9 +27,8 @@ dependency_overrides:
   record: ^5.1.1
 # {% endif %}
 
-# {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
-  geolocator: ^12.0.0
-  geolocator_android: ^4.6.0
+# {% if 'flet_permission_handler' in cookiecutter.flutter.dependencies %}
+  permission_handler_html: ^0.1.3+2
 # {% endif %}
 
 dev_dependencies:
