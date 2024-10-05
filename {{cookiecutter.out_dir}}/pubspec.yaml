@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   serious_python:
-    path: ../../serious_python/src/serious_python
+    path: /Users/feodor/projects/flet-dev/serious-python/src/serious_python
   flet: 0.24.1
   
   path: ^1.9.0
