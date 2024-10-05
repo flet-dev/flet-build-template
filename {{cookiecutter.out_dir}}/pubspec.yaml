@@ -11,7 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  serious_python: 0.7.1
+  serious_python:
+    path: ../../serious_python/src/serious_python
   flet: 0.24.1
   
   path: ^1.9.0
