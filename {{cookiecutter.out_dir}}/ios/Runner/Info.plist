@@ -58,7 +58,7 @@
 		<key>{{ k }}</key>
 		<!-- {% if v is True %} -->
 		<true />
-		<!-- {% else if v is False %} -->
+		<!-- {% elif v is False %} -->
 		<false />
 		<!-- {% else %} -->
 		<string>{{ v }}</string>
