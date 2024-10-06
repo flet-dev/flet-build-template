@@ -1,6 +1,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <!-- {% for k, v in cookiecutter.options.android_permissions.items() %} {% if v == True %}-->
     <uses-permission android:name="{{ k }}" />
     <!-- {% endif %} {% endfor %} -->
