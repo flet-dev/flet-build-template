@@ -17,5 +17,6 @@
     "web_renderer": "canvaskit",
     "use_color_emoji": "false",
     "split_per_abi": false,
-    "info_plist": {}
+    "info_plist": {},
+    "macos_entitlements": []
 }
