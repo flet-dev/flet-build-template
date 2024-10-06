@@ -41,6 +41,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />   <!-- Google TV -->
             </intent-filter>
+            <!-- {% if cookiecutter.options.deep_linking_url %} -->
+            <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="{{ cookiecutter.options.deep_linking_url.scheme }}"
+                    android:host="{{ cookiecutter.options.deep_linking_url.netloc }}" />
+            </intent-filter>
+            <!-- {% endif %} -->
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
