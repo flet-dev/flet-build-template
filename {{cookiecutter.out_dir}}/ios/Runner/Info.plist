@@ -56,6 +56,12 @@
 		<string>This app needs access to location.</string>
 		<!-- {% for k, v in cookiecutter.info_plist.items() %} -->
 		<key>{{ k }}</key>
-		<!-- {% endfor %} -->
+		<!-- {% if v is True %} -->
+		<true />
+		<!-- {% else if v is False %} -->
+		<false />
+		<!-- {% else %} -->
+		<string>{{ v }}</string>
+		<!-- {% endif %} {% endfor %} -->
 	</dict>
 </plist>
