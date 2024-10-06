@@ -62,7 +62,6 @@
 		<false />
 		<!-- {% else %} -->
 		<string>{{ v }}</string>
-		<!-- {% endif %} -->
-		<!-- {% endfor %} -->
+		<!-- {% endif %} {% endfor %} -->
 	</dict>
 </plist>
