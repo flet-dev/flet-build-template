@@ -55,10 +55,7 @@
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>This app needs access to location.</string>
 		<!-- {% for k, v in cookiecutter.info_plist.items() %} -->
-		<key>{{ k }}</key>
-		<!-- {% if v == True %} -->
-		<true />
-		<!-- {% endif %} -->
+		<key>{{ k }}={{ v }}</key>
 		<!-- {% endfor %} -->
 	</dict>
 </plist>
