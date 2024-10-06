@@ -54,6 +54,15 @@
 		<string>This app needs access to Audio Recording.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>This app needs access to location.</string>
-
+		<!-- {% for k, v in cookiecutter.info_plist.items() %} -->
+		<key>{{ k }}</key>
+		<!-- {% if v is True %} -->
+		<true />
+		<!-- {% elif v is False %} -->
+		<false />
+		<!-- {% else %} -->
+		<string>{{ v }}</string>
+		<!-- {% endif %} -->
+		<!-- {% endfor %} -->
 	</dict>
 </plist>
