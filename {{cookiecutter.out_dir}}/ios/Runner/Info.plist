@@ -60,8 +60,6 @@
 		<true />
 		<!-- {% elif v is False %} -->
 		<false />
-		<!-- {% else %} -->
-		<string>{{ v }}</string>
 		<!-- {% endif %} -->
 		<!-- {% endfor %} -->
 	</dict>
