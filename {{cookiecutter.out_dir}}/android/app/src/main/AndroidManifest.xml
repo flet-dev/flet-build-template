@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- {% for p in cookiecutter.options.android_permissions.items() %} {% if v == True %}-->
-    <uses-permission android:name="{{ p }}" />
+    <!-- {% for k, v in cookiecutter.options.android_permissions.items() %} {% if v == True %}-->
+    <uses-permission android:name="{{ k }}" />
     <!-- {% endif %} {% endfor %} -->
 
     <!-- {% for k, v in cookiecutter.options.android_features.items() %} -->
-    <uses-feature android:name="{{ k }}" android:required="{{ v }}" />
+    <uses-feature android:name="{{ k }}" android:required="{{ str(v).lower() }}" />
     <!-- {% endfor %} -->
 
     <!-- Google TV -->
