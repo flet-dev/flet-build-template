@@ -16,5 +16,6 @@
     "route_url_strategy": "path",
     "web_renderer": "canvaskit",
     "use_color_emoji": "false",
-    "split_per_abi": false
+    "split_per_abi": false,
+    "info_plist": {}
 }
