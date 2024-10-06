@@ -18,5 +18,5 @@
     "use_color_emoji": "false",
     "split_per_abi": false,
     "info_plist": {},
-    "macos_entitlements": null
+    "macos_entitlements": []
 }
