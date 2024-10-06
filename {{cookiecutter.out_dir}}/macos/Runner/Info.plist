@@ -28,9 +28,14 @@
 		<string>MainMenu</string>
 		<key>NSPrincipalClass</key>
 		<string>NSApplication</string>
-		<key>NSMicrophoneUsageDescription</key>
-		<string>This app needs access to Audio Recording.</string>
-		<key>NSLocationUsageDescription</key>
-		<string>This app needs access to location.</string>
+		<!-- {% for k, v in cookiecutter.options.info_plist.items() %} -->
+		<key>{{ k }}</key>
+		<!-- {% if v == True %} -->
+		<true />
+		<!-- {% elif v == False %} -->
+		<false />
+		<!-- {% else %} -->
+		<string>{{ v }}</string>
+		<!-- {% endif %} {% endfor %} -->
 	</dict>
 </plist>

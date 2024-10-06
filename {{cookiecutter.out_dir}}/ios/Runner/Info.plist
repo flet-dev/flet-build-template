@@ -50,11 +50,7 @@
 			<key>NSAllowsArbitraryLoads</key>
 			<true />
 		</dict>
-		<key>NSMicrophoneUsageDescription</key>
-		<string>This app needs access to Audio Recording.</string>
-		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app needs access to location.</string>
-		<!-- {% for k, v in cookiecutter.info_plist.items() %} -->
+		<!-- {% for k, v in cookiecutter.options.info_plist.items() %} -->
 		<key>{{ k }}</key>
 		<!-- {% if v == True %} -->
 		<true />
