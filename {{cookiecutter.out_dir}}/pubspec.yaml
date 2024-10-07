@@ -18,10 +18,11 @@ dependencies:
   path: ^1.9.0
   url_strategy: ^0.2.0
   cupertino_icons: ^1.0.6
+  path_provider: ^2.1.4
+  package_info_plus: ^8.0.2
 
 dependency_overrides:
   wakelock_plus: ^1.2.5
-  package_info_plus: ^8.0.0
   web: ^1.0.0
 
 # {% if 'flet_audio_recorder' in cookiecutter.flutter.dependencies %}
