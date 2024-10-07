@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
-		<!-- {% for k, v in cookiecutter.options.macos_entitlements.items() %} -->
+		<!-- flet: entitlement {% for k, v in cookiecutter.options.macos_entitlements.items() %} -->
 		<key>{{ k }}</key>
-		<!-- {% if v == True %} -->
+		<!-- flet: True {% if v == True %} -->
 		<true />
-		<!-- {% elif v == False %} -->
+		<!-- flet: False {% elif v == False %} -->
 		<false />
-		<!-- {% endif %} {% endfor %} -->
+		<!-- flet: end of entitlement {% endif %} {% endfor %} -->
 	</dict>
 </plist>

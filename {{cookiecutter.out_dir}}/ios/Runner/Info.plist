@@ -50,14 +50,31 @@
 			<key>NSAllowsArbitraryLoads</key>
 			<true />
 		</dict>
-		<!-- {% for k, v in cookiecutter.options.info_plist.items() %} -->
-		<key>{{ k }}</key>
-		<!-- {% if v == True %} -->
+		<!-- flet: deep linking {% if cookiecutter.options.deep_linking_url %} -->
+		<key>FlutterDeepLinkingEnabled</key>
 		<true />
-		<!-- {% elif v == False %} -->
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLName</key>
+				<string>{{ cookiecutter.options.deep_linking_url.netloc }}</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>{{ cookiecutter.options.deep_linking_url.scheme }}</string>
+				</array>
+			</dict>
+		</array>
+		<!-- flet: end of deep linking {% endif %} -->
+		<!-- flet: prop {% for k, v in cookiecutter.options.info_plist.items() %} -->
+		<key>{{ k }}</key>
+		<!-- flet: True {% if v == True %} -->
+		<true />
+		<!-- flet: False {% elif v == False %} -->
 		<false />
-		<!-- {% else %} -->
+		<!-- flet: string value {% else %} -->
 		<string>{{ v }}</string>
-		<!-- {% endif %} {% endfor %} -->
+		<!-- flet: end of prop {% endif %} {% endfor %} -->
 	</dict>
 </plist>
