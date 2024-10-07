@@ -64,9 +64,24 @@ android {
 // {% endif %}
     }
 
+// {% if cookiecutter.options.android_signing %}
+    signingConfigs {
+        release {
+            keyAlias System.getenv('FLET_ANDROID_SIGNING_KEY_ALIAS')
+            keyPassword System.getenv('FLET_ANDROID_SIGNING_KEY_PASSWORD')
+            storeFile System.getenv('FLET_ANDROID_SIGNING_KEY_STORE') ? file(System.getenv('FLET_ANDROID_SIGNING_KEY_STORE')) : null
+            storePassword System.getenv('FLET_ANDROID_SIGNING_KEY_STORE_PASSWORD')
+        }
+    }
+// {% endif %}
+
     buildTypes {
         release {
+// {% if cookiecutter.options.android_signing %}
             signingConfig signingConfigs.debug
+// {% else %}
+            signingConfig signingConfigs.release
+// {% endif %}
         }
     }
 }
