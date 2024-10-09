@@ -28,9 +28,14 @@
 		<string>MainMenu</string>
 		<key>NSPrincipalClass</key>
 		<string>NSApplication</string>
-		<key>NSMicrophoneUsageDescription</key>
-		<string>This app needs access to Audio Recording.</string>
-		<key>NSLocationUsageDescription</key>
-		<string>This app needs access to location.</string>
+		<!-- flet: prop {% for k, v in cookiecutter.options.info_plist.items() %} -->
+		<key>{{ k }}</key>
+		<!-- flet: True {% if v == True %} -->
+		<true />
+		<!-- flet: False {% elif v == False %} -->
+		<false />
+		<!-- flet: string value {% else %} -->
+		<string>{{ v }}</string>
+		<!-- flet: end of prop {% endif %} {% endfor %} -->
 	</dict>
 </plist>

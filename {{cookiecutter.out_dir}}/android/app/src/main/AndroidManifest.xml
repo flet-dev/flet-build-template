@@ -1,24 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Media access permissions.
-    Android 13 or higher.
-    https://developer.android.com/about/versions/13/behavior-changes-13#granular-media-permissions -->
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <!-- Storage access permissions. Android 12 or lower. -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Geolocator background/foreground service permissions -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- Google TV -->
-    <uses-feature android:name="android.software.leanback" android:required="false" />
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <!-- flet: permission {% for k, v in cookiecutter.options.android_permissions.items() %} {% if v == True %} -->
+    <uses-permission android:name="{{ k }}" />
+    <!-- flet: enf of permission {% endif %} {% endfor %} -->
+
+    <!-- flet: feature {% for k, v in cookiecutter.options.android_features.items() %} -->
+    <uses-feature android:name="{{ k }}" android:required="{% if v == True %}true{% else %}false{% endif %}" />
+    <!-- flet: end of feature {% endfor %} -->
 
     <application
         android:label="{{ cookiecutter.product_name }}"
@@ -26,8 +13,8 @@
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher">
         <meta-data
-                android:name="io.flutter.embedding.android.EnableImpeller"
-                android:value="false"/>
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -47,8 +34,18 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>   <!-- Google TV -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />   <!-- Google TV -->
             </intent-filter>
+            <!-- flet: deep linking {% if cookiecutter.options.deep_linking_url %} -->
+            <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="{{ cookiecutter.options.deep_linking_url.scheme }}"
+                    android:host="{{ cookiecutter.options.deep_linking_url.netloc }}" />
+            </intent-filter>
+            <!-- flet: end of deep linking {% endif %} -->
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->

@@ -1,4 +1,4 @@
-importScripts("https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js");
+importScripts("https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js");
 
 self.pythonModuleName = null;
 self.initialized = false;

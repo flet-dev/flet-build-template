@@ -31,6 +31,10 @@ android {
         jniLibs {
             useLegacyPackaging true
         }
+        doNotStrip "*/arm64-v8a/libpython*.so"
+        doNotStrip "*/armeabi-v7a/libpython*.so"
+        doNotStrip "*/x86/libpython*.so"
+        doNotStrip "*/x86_64/libpython*.so"
     }
     
     compileOptions {
@@ -53,14 +57,31 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
+// flet: split_per_abi {% if not cookiecutter.split_per_abi %}
         ndk {
             abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
         }
+// flet: end of split_per_abi {% endif %}
     }
+
+// flet: android_signing {% if cookiecutter.options.android_signing %}
+    signingConfigs {
+        release {
+            keyAlias System.getenv('FLET_ANDROID_SIGNING_KEY_ALIAS')
+            keyPassword System.getenv('FLET_ANDROID_SIGNING_KEY_PASSWORD')
+            storeFile System.getenv('FLET_ANDROID_SIGNING_KEY_STORE') ? file(System.getenv('FLET_ANDROID_SIGNING_KEY_STORE')) : null
+            storePassword System.getenv('FLET_ANDROID_SIGNING_KEY_STORE_PASSWORD')
+        }
+    }
+// flet: end of android_signing {% endif %}
 
     buildTypes {
         release {
+// flet: android_signing {% if cookiecutter.options.android_signing %}
+            signingConfig signingConfigs.release
+// {% else %}
             signingConfig signingConfigs.debug
+// flet: end of android_signing {% endif %}
         }
     }
 }
