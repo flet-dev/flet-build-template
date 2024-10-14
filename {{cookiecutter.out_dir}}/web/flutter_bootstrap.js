@@ -1,10 +1,10 @@
-{{flutter_js}}
-{{flutter_build_config}}
+{{ '{{flutter_js}}' }}
+{{ '{{flutter_build_config}}' }}
 
 var loading = document.querySelector('#loading');
 _flutter.loader.load({
     serviceWorkerSettings: {
-        serviceWorkerVersion: {{flutter_service_worker_version}},
+        serviceWorkerVersion: {{ '{{flutter_service_worker_version}}' }},
     },
     onEntrypointLoaded: async function (engineInitializer) {
         loading.classList.add('main_done');
