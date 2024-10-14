@@ -50,7 +50,7 @@
 			<key>NSAllowsArbitraryLoads</key>
 			<true />
 		</dict>
-		<!-- flet: deep linking {% if cookiecutter.options.deep_linking_url %} -->
+		<!-- flet: deep linking {% if cookiecutter.options.deep_linking.scheme and cookiecutter.options.deep_linking.host%} -->
 		<key>FlutterDeepLinkingEnabled</key>
 		<true />
 		<key>CFBundleURLTypes</key>
@@ -59,10 +59,10 @@
 				<key>CFBundleTypeRole</key>
 				<string>Editor</string>
 				<key>CFBundleURLName</key>
-				<string>{{ cookiecutter.options.deep_linking_url.netloc }}</string>
+				<string>{{ cookiecutter.options.deep_linking.host }}</string>
 				<key>CFBundleURLSchemes</key>
 				<array>
-					<string>{{ cookiecutter.options.deep_linking_url.scheme }}</string>
+					<string>{{ cookiecutter.options.deep_linking.scheme }}</string>
 				</array>
 			</dict>
 		</array>
