@@ -1,5 +1,5 @@
-name: {{ cookiecutter.project_name.replace("-", "_") }}
-description: {{ cookiecutter.project_description }}
+name: '{{ cookiecutter.project_name }}'
+description: '{{ cookiecutter.project_description }}'
 publish_to: 'none'
 
 version: 1.0.0+1

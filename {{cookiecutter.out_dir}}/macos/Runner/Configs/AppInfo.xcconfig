@@ -8,7 +8,7 @@
 PRODUCT_NAME = {{ cookiecutter.product_name }}
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = {{ cookiecutter.org_name }}.{{ cookiecutter.project_name }}
+PRODUCT_BUNDLE_IDENTIFIER = {{ cookiecutter.org_name }}.{{ cookiecutter.project_name_slug }}
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = {{ cookiecutter.copyright }}. All rights reserved.
