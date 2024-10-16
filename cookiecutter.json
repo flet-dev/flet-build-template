@@ -2,6 +2,7 @@
     "out_dir": "",
     "python_module_name": "main",
     "project_name": "",
+    "project_name_slug": "",
     "project_description": "",
     "product_name": "{{ cookiecutter.project_name }}",
     "org_name": "com.flet",

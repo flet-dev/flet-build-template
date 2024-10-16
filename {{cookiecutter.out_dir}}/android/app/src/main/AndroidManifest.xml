@@ -36,14 +36,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />   <!-- Google TV -->
             </intent-filter>
-            <!-- flet: deep linking {% if cookiecutter.options.deep_linking_url %} -->
+            <!-- flet: deep linking {% if cookiecutter.options.deep_linking.scheme and cookiecutter.options.deep_linking.host %} -->
             <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="{{ cookiecutter.options.deep_linking_url.scheme }}"
-                    android:host="{{ cookiecutter.options.deep_linking_url.netloc }}" />
+                <data android:scheme="{{ cookiecutter.options.deep_linking.scheme }}"
+                    android:host="{{ cookiecutter.options.deep_linking.host }}" />
             </intent-filter>
             <!-- flet: end of deep linking {% endif %} -->
         </activity>
