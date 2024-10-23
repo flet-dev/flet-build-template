@@ -37,6 +37,9 @@ import certifi, os, runpy, socket, sys, traceback
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 os.environ["SSL_CERT_FILE"] = certifi.where()
 
+# fix for cryptography package
+os.environ["CRYPTOGRAPHY_OPENSSL_NO_LEGACY"] = "1"
+
 # fix for: https://github.com/flet-dev/serious-python/issues/85#issuecomment-2065000974
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 
