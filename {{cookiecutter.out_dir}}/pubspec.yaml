@@ -25,7 +25,7 @@ dependencies:
   package_info_plus: ^8.0.2
 
 dependency_overrides:
-  wakelock_plus: ^1.2.5
+  wakelock_plus: ^1.2.10
   web: ^1.0.0
   window_manager: ^0.4.3
 
