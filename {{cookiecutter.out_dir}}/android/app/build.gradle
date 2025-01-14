@@ -25,7 +25,6 @@ if (flutterVersionName == null) {
 android {
     namespace "{{ cookiecutter.org_name }}.{{ cookiecutter.project_name }}"
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion "25.1.8937393"
 
     packagingOptions {
         jniLibs {
@@ -52,7 +51,7 @@ android {
 
     defaultConfig {
         applicationId "{{ cookiecutter.org_name }}.{{ cookiecutter.project_name }}"
-        minSdkVersion 23
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
