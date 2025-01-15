@@ -49,7 +49,7 @@ void main(List<String> args) async {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           // OK - start Python program
-          return kIsWeb
+          return kIsWeb || (isDesktopPlatform() && _args.isNotEmpty)
               ? FletApp(
                   pageUrl: pageUrl,
                   assetsDir: assetsDir,
