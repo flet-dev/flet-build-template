@@ -15,7 +15,7 @@ dependencies:
   flet: #0.26.0
     git:
       url: https://github.com/flet-dev/flet.git
-      ref: feodor/flutter-extensions
+      ref: main
       path: packages/flet
   
   path: ^1.9.0
