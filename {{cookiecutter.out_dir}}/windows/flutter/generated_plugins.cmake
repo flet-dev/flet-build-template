@@ -3,7 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  screen_retriever
+  record_windows
+  screen_retriever_windows
   serious_python_windows
   url_launcher_windows
   window_manager
