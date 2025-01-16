@@ -1,10 +1,7 @@
 const errorExitCode = 100;
 
 const pythonScript = """
-import certifi, os, runpy, socket, sys, traceback
-
-os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
-os.environ["SSL_CERT_FILE"] = certifi.where()
+import os, runpy, socket, sys, traceback
 
 # fix for cryptography package
 os.environ["CRYPTOGRAPHY_OPENSSL_NO_LEGACY"] = "1"
@@ -56,20 +53,7 @@ def initialize_ctypes():
 
     ctypes.CDLL.__init__ = CDLL_init_override
 
-
 initialize_ctypes()
-
-if os.getenv("FLET_PLATFORM") == "android":
-    import ssl
-
-    def create_default_context(
-        purpose=ssl.Purpose.SERVER_AUTH, *, cafile=None, capath=None, cadata=None
-    ):
-        return ssl.create_default_context(
-            purpose=purpose, cafile=certifi.where(), capath=capath, cadata=cadata
-        )
-
-    ssl._create_default_https_context = create_default_context
 
 out_file = open("{outLogFilename}", "w+", buffering=1)
 
@@ -93,6 +77,23 @@ sys.exit = flet_exit
 
 ex = None
 try:
+    import certifi
+    
+    os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
+    os.environ["SSL_CERT_FILE"] = certifi.where()
+
+    if os.getenv("FLET_PLATFORM") == "android":
+        import ssl
+
+        def create_default_context(
+            purpose=ssl.Purpose.SERVER_AUTH, *, cafile=None, capath=None, cadata=None
+        ):
+            return ssl.create_default_context(
+                purpose=purpose, cafile=certifi.where(), capath=capath, cadata=cadata
+            )
+
+        ssl._create_default_https_context = create_default_context
+
     sys.argv = {argv}
     runpy.run_module("{module_name}", run_name="__main__")
 except Exception as e:
