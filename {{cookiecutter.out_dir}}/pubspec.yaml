@@ -12,7 +12,6 @@ dependencies:
     sdk: flutter
 
   serious_python: 0.8.7
-  flet: ^0.26.0
   
   path: ^1.9.0
   url_strategy: ^0.2.0
@@ -22,6 +21,7 @@ dependencies:
   window_manager: ^0.4.3
   
 dependency_overrides:
+  flet: 0.26.0
   # flet:
   #   git:
   #     path: packages/flet
