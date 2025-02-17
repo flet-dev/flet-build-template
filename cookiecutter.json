@@ -17,7 +17,7 @@
     "ios_signing_certificate": "",
     "ios_export_options": {},
     "ios_team_id": "",
-    "build_arch": [],
+    "target_arch": [],
     "package_name": "{{ cookiecutter.bundle_id.rsplit('.', 1)[-1].replace('-', '_') if 'bundle_id' in cookiecutter else cookiecutter.project_name }}",
     "kotlin_dir": "{{ cookiecutter.org_name.replace('.', cookiecutter.sep) }}{{ cookiecutter.sep }}{{ cookiecutter.package_name }}{{ cookiecutter.sep }}",
     "base_url": "/",
