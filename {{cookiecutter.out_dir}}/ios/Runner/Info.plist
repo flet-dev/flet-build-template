@@ -66,15 +66,38 @@
 				</array>
 			</dict>
 		</array>
-		<!-- flet: end of deep linking {% endif %} -->
-		<!-- flet: prop {% for k, v in cookiecutter.options.info_plist.items() %} -->
-		<key>{{ k }}</key>
-		<!-- flet: True {% if v == True %} -->
+		<!-- {% macro render_dict(d) -%} -->
+		<!-- {% for key, value in d.items() -%} -->
+		<key>{{ key }}</key>
+		<!-- {% if value is string -%} -->
+		<string>{{ value }}</string>
+		<!-- {% elif value == True %} -->
 		<true />
-		<!-- flet: False {% elif v == False %} -->
+		<!-- {% elif value == False %} -->
 		<false />
-		<!-- flet: string value {% else %} -->
-		<string>{{ v }}</string>
-		<!-- flet: end of prop {% endif %} {% endfor %} -->
+		<!-- {% elif value is mapping -%} -->
+		<dict>
+			{{ render_dict(value) }}
+		</dict>
+		<!-- {% elif value is sequence -%}  {# Support for lists/arrays #} -->
+		<array>
+			<!-- {% for item in value -%} -->
+				<!-- {% if item is string -%} -->
+				<string>{{ item }}</string>
+				<!-- {% elif item == True %} -->
+				<true />
+				<!-- {% elif item == False %} -->
+				<false />
+				<!-- {% elif item is mapping -%} -->
+				<dict>
+					{{ render_dict(item) }}
+				</dict>
+				<!-- {% endif -%} -->
+			<!-- {% endfor -%} -->
+		</array>
+		<!-- {% endif -%} -->
+		<!-- {% endfor -%} -->
+		<!-- {% endmacro -%} -->
+		{{ render_dict(cookiecutter.options.info_plist) }}
 	</dict>
 </plist>
