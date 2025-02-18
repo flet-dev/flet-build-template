@@ -31,7 +31,7 @@ dependency_overrides:
   serious_python:
     git:
       url: https://github.com/flet-dev/serious-python.git
-      ref: resources
+      ref: main
       path: src/serious_python
 
   wakelock_plus: ^1.2.10
