@@ -66,6 +66,8 @@
 				</array>
 			</dict>
 		</array>
+		<!-- flet: end of deep linking {% endif %} -->
+		
 		<!-- {% macro render_dict(d) -%} -->
 		<!-- {% for key, value in d.items() -%} -->
 		<key>{{ key }}</key>
