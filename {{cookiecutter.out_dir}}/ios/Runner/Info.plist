@@ -67,15 +67,15 @@
 			</dict>
 		</array>
 		<!-- flet: end of deep linking {% endif %} -->
-		
+
 		<!-- {% macro render_dict(d) -%} -->
 		<!-- {% for key, value in d.items() -%} -->
 		<key>{{ key }}</key>
 		<!-- {% if value is string -%} -->
 		<string>{{ value }}</string>
-		<!-- {% elif value == True %} -->
+		<!-- {% elif value == True -%} -->
 		<true />
-		<!-- {% elif value == False %} -->
+		<!-- {% elif value == False -%} -->
 		<false />
 		<!-- {% elif value is mapping -%} -->
 		<dict>
@@ -86,9 +86,9 @@
 			<!-- {% for item in value -%} -->
 				<!-- {% if item is string -%} -->
 				<string>{{ item }}</string>
-				<!-- {% elif item == True %} -->
+				<!-- {% elif item == True -%} -->
 				<true />
-				<!-- {% elif item == False %} -->
+				<!-- {% elif item == False -%} -->
 				<false />
 				<!-- {% elif item is mapping -%} -->
 				<dict>
