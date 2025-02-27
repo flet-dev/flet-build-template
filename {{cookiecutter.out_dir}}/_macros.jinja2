@@ -3,22 +3,14 @@
 {% macro get_value(dict, path) %}
     {# Split the path into keys #}
     {% set keys = path.split('.') %}
-    
-    {# Initialize the result with the input dictionary #}
-    {% set result = dict %}
-    
-    {# Use a flag to detect when to stop processing #}
-    {% set valid = true %}
-    
-    {# Iterate through the keys and traverse the dictionary #}
-    {% for key in keys %}
-        {% if valid and result is mapping and key in result %}
-            {% set result = result[key] %}
+    {% if keys and dict is mapping and keys[0] in dict %}
+        {% set next_value = dict[keys[0]] %}
+        {% if keys | length == 1 %}
+            {{ next_value }}
         {% else %}
-            {% set result = none %}
-            {% set valid = false %}
+            {{ get_value(next_value, keys[1:] | join('.')) }}
         {% endif %}
-    {% endfor %}
-    
-    {{ result }}
+    {% else %}
+        {{ none }}
+    {% endif %}
 {% endmacro %}
