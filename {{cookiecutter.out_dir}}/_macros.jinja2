@@ -11,6 +11,6 @@
             {{ get_value(next_value, keys[1:] | join('.')) }}
         {% endif %}
     {% else %}
-        {{ none }}
+        {{ "" }}
     {% endif %}
 {% endmacro %}
