@@ -56,7 +56,11 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-    println("minSdkVersion: $flutter.minSdkVersion")
+        println("Gradle build config:")
+        println("  minSdkVersion: $flutter.minSdkVersion")
+        println("  targetSdkVersion: $flutter.targetSdkVersion")
+        println("  versionCode: $flutter.versionCode")
+        println("  versionName: $flutter.versionName")
 
 // flet: split_per_abi {% if not cookiecutter.split_per_abi %}
         ndk {
