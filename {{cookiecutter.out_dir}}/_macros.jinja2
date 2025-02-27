@@ -1,8 +1,21 @@
 {# _macros.jinja2 #}
-{% macro upper_case(value) %}
-    {{ value.upper() }}
-{% endmacro %}
 
-{% macro greeting(name) %}
-    Hello, {{ name }}!
+{% macro get_value(dict, path) %}
+    {# Split the path into keys #}
+    {% set keys = path.split('.') %}
+    
+    {# Initialize the result with the input dictionary #}
+    {% set result = dict %}
+    
+    {# Iterate through the keys and traverse the dictionary #}
+    {% for key in keys %}
+        {% if result is mapping and key in result %}
+            {% set result = result[key] %}
+        {% else %}
+            {% set result = none %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+    
+    {{ result }}
 {% endmacro %}
