@@ -1,3 +1,4 @@
+{% import "../../_macros.jinja2" as macros %}
 plugins {
     id "com.android.application"
     id "kotlin-android"
@@ -49,16 +50,19 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    defaultConfig {
+    {% set min_sdk_version = macros.get_value(cookiecutter.pyproject, "tool.flet.android.min_sdk_version") | trim %}
+    {% set target_sdk_version = macros.get_value(cookiecutter.pyproject, "tool.flet.android.target_sdk_version") | trim %}
+
+    defaultConfig {        
         applicationId "{{ cookiecutter.org_name_2 }}.{{ cookiecutter.package_name }}"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion {{ min_sdk_version if min_sdk_version else "flutter.minSdkVersion" }}
+        targetSdkVersion {{ target_sdk_version if target_sdk_version else "flutter.targetSdkVersion" }}
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
         println("Gradle build config:")
-        println("  minSdkVersion: $flutter.minSdkVersion")
-        println("  targetSdkVersion: $flutter.targetSdkVersion")
+        println("  minSdkVersion: {{ min_sdk_version if min_sdk_version else "$flutter.minSdkVersion" }}")
+        println("  targetSdkVersion: {{ target_sdk_version if target_sdk_version else "$flutter.targetSdkVersion" }}")
         println("  versionCode: $flutter.versionCode")
         println("  versionName: $flutter.versionName")
 
