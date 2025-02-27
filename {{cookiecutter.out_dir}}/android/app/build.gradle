@@ -56,7 +56,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-    print(flutter.minSdkVersion)
+    println("minSdkVersion: $flutter.minSdkVersion")
 
 // flet: split_per_abi {% if not cookiecutter.split_per_abi %}
         ndk {
