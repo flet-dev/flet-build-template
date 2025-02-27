@@ -1,16 +1,16 @@
 {# _macros.jinja2 #}
 
-{% macro get_value(dict, path) -%}
+{% macro get_value(dict, path) %}
     {# Split the path into keys #}
     {% set keys = path.split('.') %}
-    {% if keys and dict is mapping and keys[0] in dict -%}
+    {% if keys and dict is mapping and keys[0] in dict %}
         {% set next_value = dict[keys[0]] %}
-        {% if keys | length == 1 -%}
-            {{ next_value | string | trim }}
-        {%- else -%}
-            {{ get_value(next_value, keys[1:] | join('.')) | string | trim }}
-        {%- endif %}
-    {%- else -%}
+        {% if keys | length == 1 %}
+            {{ next_value }}
+        {% else %}
+            {{ get_value(next_value, keys[1:] | join('.')) }}
+        {% endif %}
+    {% else %}
         {{ none }}
-    {%- endif %}
-{%- endmacro %}
+    {% endif %}
+{% endmacro %}
