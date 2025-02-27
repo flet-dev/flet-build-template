@@ -1,4 +1,4 @@
-{% import "../../_macros.jinja2" as macros %}
+{% import "_macros.jinja2" as macros %}
 plugins {
     id "com.android.application"
     id "kotlin-android"
