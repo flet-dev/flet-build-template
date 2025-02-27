@@ -7,13 +7,16 @@
     {# Initialize the result with the input dictionary #}
     {% set result = dict %}
     
+    {# Use a flag to detect when to stop processing #}
+    {% set valid = true %}
+    
     {# Iterate through the keys and traverse the dictionary #}
     {% for key in keys %}
-        {% if result is mapping and key in result %}
+        {% if valid and result is mapping and key in result %}
             {% set result = result[key] %}
         {% else %}
             {% set result = none %}
-            {% break %}
+            {% set valid = false %}
         {% endif %}
     {% endfor %}
     
