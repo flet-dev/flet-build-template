@@ -14,6 +14,13 @@ import 'package:window_manager/window_manager.dart';
 
 import "python.dart";
 
+/*
+{% import "_macros.jinja2" as macros %}
+
+{% set splash_screen = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | default(True, true) %}
+{% set splash_screen_text = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim %}
+*/
+
 {% for dep in cookiecutter.flutter.dependencies %}
 import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
 {% endfor %}
@@ -83,7 +90,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: BlankScreen());
+          return const MaterialApp(home: {% if splash_screen "BlankScreen()" else "SplashScreen()" %});
         }
       }));
 }
@@ -290,6 +297,34 @@ class ErrorScreen extends StatelessWidget {
           ],
         ),
       )),
+    );
+  }
+}
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(strokeWidth: 3),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Text("Getting things ready…")
+          ],
+        ),
+      ),
     );
   }
 }
