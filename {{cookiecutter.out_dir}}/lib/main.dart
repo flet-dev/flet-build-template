@@ -19,10 +19,11 @@ import "python.dart";
 {% set config_platform = macros.get_config_platform(cookiecutter.options.package_platform) | trim %}
 {% set splash_screen = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".splash_screen") | trim) 
                         or (macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | trim) 
-                        or true %}
+                        or "True" %}
 {% set splash_screen_text = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".splash_screen_text") | trim) 
                         or (macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim) %}
 splash_screen: {{ splash_screen }}
+
 splash_screen_text: {{ splash_screen_text }}
 */
 
@@ -95,7 +96,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: {% if splash_screen %}SplashScreen(){% else %}BlankScreen(){% endif %});
+          return const MaterialApp(home: {% if splash_screen == "True" %}SplashScreen(){% else %}BlankScreen(){% endif %});
         }
       }));
 }
