@@ -18,8 +18,11 @@ import "python.dart";
 {% import "_macros.jinja2" as macros %}
 
 {% set config_platform = macros.get_config_platform(cookiecutter.options.package_platform) | trim %}
-{{ config_platform }}
-{% set splash_screen = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | default(True, true) %}
+{% set platform_key = "tool.flet." ~ config_platform ~ ".splash_screen" %}
+{% set splash_screen = macros.get_value(cookiecutter.pyproject, platform_key) 
+                        or macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") 
+                        or true %}
+splash_screen: {{ splash_screen }}
 {% set splash_screen_text = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim %}
 */
 
