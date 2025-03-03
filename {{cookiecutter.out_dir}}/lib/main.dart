@@ -17,6 +17,8 @@ import "python.dart";
 /*
 {% import "_macros.jinja2" as macros %}
 
+{% set config_platform = macros.get_config_platform() | trim %}
+{{ config_platform }}
 {% set splash_screen = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | default(True, true) %}
 {% set splash_screen_text = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim %}
 */
