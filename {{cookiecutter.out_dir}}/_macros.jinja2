@@ -15,16 +15,16 @@
     {% endif %}
 {% endmacro %}
 
-{% macro get_config_platform() %}
-    {% if cookiecutter.options.package_platform == "Darwin" %}
+{% macro get_config_platform(package_platform) %}
+    {% if package_platform == "Darwin" %}
         macos
-    {% elif cookiecutter.options.package_platform == "Windows" %}
+    {% elif package_platform == "Windows" %}
         windows
-    {% elif cookiecutter.options.package_platform == "Linux" %}
+    {% elif package_platform == "Linux" %}
         linux
-    {% elif cookiecutter.options.package_platform == "iOS" %}
+    {% elif package_platform == "iOS" %}
         ios
-    {% elif cookiecutter.options.package_platform == "Android" %}
+    {% elif package_platform == "Android" %}
         android
     {% else %}
         web
