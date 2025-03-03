@@ -90,7 +90,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: {% if splash_screen %}BlankScreen(){% else %}SplashScreen(){% endif %});
+          return const MaterialApp(home: {% if splash_screen %}SplashScreen(){% else %}BlankScreen(){% endif %});
         }
       }));
 }
