@@ -16,14 +16,14 @@ import "python.dart";
 
 /*
 {% import "_macros.jinja2" as macros %}
-
 {% set config_platform = macros.get_config_platform(cookiecutter.options.package_platform) | trim %}
-{% set platform_key = "tool.flet." ~ config_platform ~ ".splash_screen" %}
-{% set splash_screen = (macros.get_value(cookiecutter.pyproject, platform_key) | trim) 
+{% set splash_screen = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".splash_screen") | trim) 
                         or (macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | trim) 
                         or true %}
+{% set splash_screen_text = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".splash_screen_text") | trim) 
+                        or (macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim) %}
 splash_screen: {{ splash_screen }}
-{% set splash_screen_text = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim %}
+splash_screen_text: {{ splash_screen_text }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
@@ -326,7 +326,7 @@ class SplashScreen extends StatelessWidget {
             SizedBox(
               height: 12,
             ),
-            Text("Getting things ready…")
+            Text("{% if splash_screen_text %}{{ splash_screen_text }}{% else %}Getting things ready…{% endif %}")
           ],
         ),
       ),
