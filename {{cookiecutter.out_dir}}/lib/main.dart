@@ -19,8 +19,8 @@ import "python.dart";
 
 {% set config_platform = macros.get_config_platform(cookiecutter.options.package_platform) | trim %}
 {% set platform_key = "tool.flet." ~ config_platform ~ ".splash_screen" %}
-{% set splash_screen = macros.get_value(cookiecutter.pyproject, platform_key) 
-                        or macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") 
+{% set splash_screen = (macros.get_value(cookiecutter.pyproject, platform_key) | trim) 
+                        or (macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen") | trim) 
                         or true %}
 splash_screen: {{ splash_screen }}
 {% set splash_screen_text = macros.get_value(cookiecutter.pyproject, "tool.flet.splash_screen_text") | trim %}
