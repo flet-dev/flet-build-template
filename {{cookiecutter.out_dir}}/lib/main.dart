@@ -336,7 +336,7 @@ class BootScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text("{{ appBootScreenMessage }}", style: Theme.of(context).textTheme.bodySmall,)
+            Text(appBootScreenMessage, style: Theme.of(context).textTheme.bodySmall,)
           ],
         ),
       ),
