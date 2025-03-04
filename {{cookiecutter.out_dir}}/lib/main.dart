@@ -28,7 +28,7 @@ splash_screen_text: {{ splash_screen_text }}
 
 Uppercase Example: {{ 2 | foobar }}
 
-Greeter: {{ greet("John") }}
+get_pyproject: {{ get_pyproject("tool.flet") }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
