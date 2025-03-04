@@ -15,14 +15,22 @@ import 'package:window_manager/window_manager.dart';
 import "python.dart";
 
 /*
-{% set splash_screen = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".loading_screen")
-                        or get_pyproject("tool.flet.loading_screen")
+{% set show_boot_screen = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.boot_screen.show")
+                        or get_pyproject("tool.flet.app.boot_screen")
                         or False %}
-{% set splash_screen_text = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".loading_screen_text")
-                        or get_pyproject("tool.flet.loading_screen_text") %}
+{% set boot_screen_message = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.boot_screen.message")
+                        or get_pyproject("tool.flet.app.boot_screen.message") %}
 
-splash_screen: {{ splash_screen }}
-splash_screen_text: {{ splash_screen_text }}
+{% set show_startup_screen = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.startup_screen.show")
+                        or get_pyproject("tool.flet.app.startup_screen")
+                        or False %}
+{% set startup_screen_message = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.startup_screen.message")
+                        or get_pyproject("tool.flet.app.startup_screen.message") %}
+
+show_boot_screen: {{ show_boot_screen }}
+boot_screen_message: {{ boot_screen_message }}
+show_startup_screen: {{ show_startup_screen }}
+startup_screen_message: {{ startup_screen_message }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
@@ -33,9 +41,10 @@ const bool isProduction = bool.fromEnvironment('dart.vm.product');
 
 const assetPath = "app/app.zip";
 const pythonModuleName = "{{ cookiecutter.python_module_name }}";
-final hideLoadingPage =
-    bool.tryParse("{{ cookiecutter.hide_loading_animation }}".toLowerCase()) ??
-        true;
+final showAppBootScreen = bool.tryParse("{{ show_boot_screen }}".toLowerCase()) ?? false;
+const appBootScreenMessage = '{{ boot_screen_message | default("Preparing the app for its first launch…", true) }}';
+final showAppStartupScreen = bool.tryParse("{{ show_startup_screen }}".toLowerCase()) ?? false;
+const appStartupScreenMessage = '{{ startup_screen_message | default("Getting things ready…", true) }}';
 
 List<CreateControlFactory> createControlFactories = [
 {% for dep in cookiecutter.flutter.dependencies %}
@@ -64,7 +73,8 @@ void main(List<String> args) async {
               ? FletApp(
                   pageUrl: pageUrl,
                   assetsDir: assetsDir,
-                  hideLoadingPage: hideLoadingPage,
+                  showAppStartupScreen: showAppStartupScreen,
+                  appStartupScreenMessage: appStartupScreenMessage,
                   createControlFactories: createControlFactories)
               : FutureBuilder(
                   future: runPythonApp(args),
@@ -82,7 +92,8 @@ void main(List<String> args) async {
                       return FletApp(
                           pageUrl: pageUrl,
                           assetsDir: assetsDir,
-                          hideLoadingPage: hideLoadingPage,
+                          showAppStartupScreen: showAppStartupScreen,
+                          appStartupScreenMessage: appStartupScreenMessage,
                           createControlFactories: createControlFactories);
                     }
                   });
@@ -94,7 +105,7 @@ void main(List<String> args) async {
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return const MaterialApp(home: {% if splash_screen == "True" %}SplashScreen(){% else %}BlankScreen(){% endif %});
+          return MaterialApp(home: showAppBootScreen ? const BootScreen() : const BlankScreen());
         }
       }));
 }
@@ -305,8 +316,8 @@ class ErrorScreen extends StatelessWidget {
   }
 }
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({
+class BootScreen extends StatelessWidget {
+  const BootScreen({
     super.key,
   });
 
@@ -325,7 +336,7 @@ class SplashScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text("{% if splash_screen_text %}{{ splash_screen_text }}{% else %}Getting things ready…{% endif %}", style: Theme.of(context).textTheme.bodySmall,)
+            Text("{{ appBootScreenMessage }}", style: Theme.of(context).textTheme.bodySmall,)
           ],
         ),
       ),
