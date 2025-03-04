@@ -68,7 +68,11 @@ android {
 
 // flet: split_per_abi {% if not cookiecutter.split_per_abi %}
         ndk {
+            {% if cookiecutter.options.target_arch %}
+            abiFilters {{ cookiecutter.options.target_arch | join(', ') }}
+            {% else %}
             abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+            {% endif %}
         }
 // flet: end of split_per_abi {% endif %}
     }
