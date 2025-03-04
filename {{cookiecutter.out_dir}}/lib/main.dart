@@ -27,6 +27,8 @@ splash_screen: {{ splash_screen }}
 splash_screen_text: {{ splash_screen_text }}
 
 Uppercase Example: {{ 2 | foobar }}
+
+Greeter: {{ greet("John") }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
