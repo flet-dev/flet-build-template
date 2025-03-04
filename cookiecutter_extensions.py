@@ -10,5 +10,5 @@ class FoobarExtension(Extension):
 
     @pass_context
     def get_pyproject(self, context, setting):
-        pyproject = context.get("pyproject", {})
+        pyproject = context.get("cookiecutter", {})
         return f"Hello, {setting}! (pyproject: {pyproject})"
