@@ -25,6 +25,8 @@ import "python.dart";
 loading_screen: {{ loading_screen }}
 
 loading_screen_text: {{ loading_screen_text }}
+
+test: {{ cookiecutter.get_pyproject("tool.flet.loading_screen_text") }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
@@ -314,20 +316,20 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 24,
-              height: 24,
+            const SizedBox(
+              width: 30,
+              height: 30,
               child: CircularProgressIndicator(strokeWidth: 3),
             ),
-            SizedBox(
-              height: 12,
+            const SizedBox(
+              height: 10,
             ),
-            Text("{% if splash_screen_text %}{{ splash_screen_text }}{% else %}Getting things ready…{% endif %}")
+            Text("{% if splash_screen_text %}{{ splash_screen_text }}{% else %}Getting things ready…{% endif %}", style: Theme.of(context).textTheme.bodySmall,)
           ],
         ),
       ),
