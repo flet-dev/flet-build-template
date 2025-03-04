@@ -26,7 +26,7 @@ loading_screen: {{ loading_screen }}
 
 loading_screen_text: {{ loading_screen_text }}
 
-Uppercase Example: {{ my_custom_function("abc") }}
+Uppercase Example: {{ 2 | foobar }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}
