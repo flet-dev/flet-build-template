@@ -26,7 +26,7 @@ loading_screen: {{ loading_screen }}
 
 loading_screen_text: {{ loading_screen_text }}
 
-test: {{ cookiecutter.get_pyproject("tool.flet.loading_screen_text") }}
+Uppercase Example: {{ my_custom_function("abc") }}
 */
 
 {% for dep in cookiecutter.flutter.dependencies %}

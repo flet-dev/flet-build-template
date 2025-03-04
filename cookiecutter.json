@@ -28,6 +28,5 @@
     "pwa_theme_color": "#0175C2",
     "split_per_abi": false,
     "options": null,
-    "pyproject": null,
-    "get_pyproject": null
+    "pyproject": null
 }
