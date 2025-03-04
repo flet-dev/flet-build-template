@@ -17,14 +17,14 @@ import "python.dart";
 /*
 {% import "_macros.jinja2" as macros %}
 {% set config_platform = macros.get_config_platform(cookiecutter.options.package_platform) | trim %}
-{% set loading_screen = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".loading_screen") | trim) 
+{% set splash_screen = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".loading_screen") | trim) 
                         or (macros.get_value(cookiecutter.pyproject, "tool.flet.loading_screen") | trim) 
                         or "False" %}
-{% set loading_screen_text = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".loading_screen_text") | trim) 
+{% set splash_screen_text = (macros.get_value(cookiecutter.pyproject, "tool.flet." ~ config_platform ~ ".loading_screen_text") | trim) 
                         or (macros.get_value(cookiecutter.pyproject, "tool.flet.loading_screen_text") | trim) %}
-loading_screen: {{ loading_screen }}
+splash_screen: {{ splash_screen }}
 
-loading_screen_text: {{ loading_screen_text }}
+splash_screen_text: {{ splash_screen_text }}
 
 Uppercase Example: {{ 2 | foobar }}
 */
