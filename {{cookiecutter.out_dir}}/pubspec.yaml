@@ -29,11 +29,11 @@ dependency_overrides:
   #     ref: feodor/flet-0-27-5-fixes
   #     url: https://github.com/flet-dev/flet.git
 
-  # serious_python:
-  #   git:
-  #     url: https://github.com/flet-dev/serious-python.git
-  #     ref: main
-  #     path: src/serious_python
+  serious_python:
+    git:
+      url: https://github.com/flet-dev/serious-python.git
+      ref: main
+      path: src/serious_python
 
   wakelock_plus: ^1.2.10
   web: ^1.0.0
