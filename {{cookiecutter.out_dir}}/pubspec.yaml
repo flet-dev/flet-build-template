@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  serious_python: 0.9.1
+  serious_python: 0.9.2
   
   path: ^1.9.0
   url_strategy: ^0.2.0
@@ -21,7 +21,7 @@ dependencies:
   window_manager: ^0.4.3
   
 dependency_overrides:
-  flet: 0.27.5
+  flet: 0.27.6
 
   # flet:
   #   git:
@@ -29,11 +29,11 @@ dependency_overrides:
   #     ref: feodor/flet-0-27-5-fixes
   #     url: https://github.com/flet-dev/flet.git
 
-  serious_python:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      ref: main
-      path: src/serious_python
+  # serious_python:
+  #   git:
+  #     url: https://github.com/flet-dev/serious-python.git
+  #     ref: main
+  #     path: src/serious_python
 
   wakelock_plus: ^1.2.10
   web: ^1.0.0
