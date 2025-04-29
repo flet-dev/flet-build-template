@@ -26,6 +26,8 @@
     "pwa_background_color": "#FFFFFF",
     "pwa_theme_color": "#0175C2",
     "split_per_abi": false,
+    "no_cdn": false,
+    "no_wasm": false,
     "options": null,
     "pyproject": null,
     "_extensions": ["cookiecutter_extensions.FletExtension"]
