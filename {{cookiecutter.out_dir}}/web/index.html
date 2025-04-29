@@ -25,13 +25,13 @@
 
   <script>
     var webRenderer = "{{ cookiecutter.web_renderer }}";
-    var useColorEmoji = "{{ cookiecutter.use_color_emoji }}" == "true";
+    var useColorEmoji = "{{ cookiecutter.use_color_emoji }}".toLowerCase() == "true";
     var pythonModuleName = "{{ cookiecutter.python_module_name }}";
+    var noCdn = "{{ cookiecutter.no_cdn }}".toLowerCase() == "true";
   </script>
 
   <script>
-    var noCdn = "{{ cookiecutter.no_cdn }}";
-    if (noCdn.toLowerCase() == "true") {
+    if (noCdn) {
       var canvasKitBaseUrl = "/canvaskit/";
       var pyodideUrl = "/pyodide/pyodide.js";
     }
