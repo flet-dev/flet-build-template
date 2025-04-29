@@ -29,6 +29,13 @@
     var pythonModuleName = "{{ cookiecutter.python_module_name }}";
   </script>
 
+  <!-- {% if cookiecutter.no_cdn %} -->
+  <script>
+    var canvasKitBaseUrl = "/canvaskit/";
+    var pyodideUrl = "/pyodide/pyodide.js";
+  </script>
+  <!-- {% endif %} -->
+
   <script src="python.js"></script>
 </head>
 

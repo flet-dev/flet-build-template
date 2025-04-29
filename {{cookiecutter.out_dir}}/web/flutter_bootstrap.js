@@ -2,8 +2,11 @@
 {{ '{{flutter_build_config}}' }}
 
 var config = {};
-if (webRenderer != "auto") {
-    config.renderer = webRenderer;
+if (globalThis.webRenderer != "auto") {
+    config.renderer = globalThis.webRenderer;
+}
+if (globalThis.canvasKitBaseUrl) {
+    config.canvasKitBaseUrl = globalThis.canvasKitBaseUrl;
 }
 
 _flutter.loader.load({
