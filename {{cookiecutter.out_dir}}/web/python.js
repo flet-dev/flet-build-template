@@ -1,4 +1,4 @@
-const defaultPyodideUrl = "https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js";
+const defaultPyodideUrl = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js";
 
 let _apps = {};
 let _documentUrl = document.URL;
@@ -30,12 +30,12 @@ globalThis.jsConnect = async function(appId, args, dartOnMessage) {
 
     // initialize worker
     app.worker.postMessage({
-        pyodideUrl: globalThis.pyodideUrl ?? defaultPyodideUrl,
+        pyodideUrl: flet.noCdn ? flet.pyodideUrl : defaultPyodideUrl,
         args: args,
         documentUrl: _documentUrl,
-        appPackageUrl: globalThis.appPackageUrl,
-        micropipIncludePre: globalThis.micropipIncludePre,
-        pythonModuleName: globalThis.pythonModuleName
+        appPackageUrl: flet.appPackageUrl,
+        micropipIncludePre: flet.micropipIncludePre,
+        pythonModuleName: flet.pythonModuleName
     });
 
     await pythonInitialized;

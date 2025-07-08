@@ -1,21 +1,26 @@
 {{ '{{flutter_js}}' }}
 {{ '{{flutter_build_config}}' }}
 
-var config = {};
-if (globalThis.webRenderer != "auto") {
-    config.renderer = globalThis.webRenderer;
+var flutterConfig = {
+    multiViewEnabled: flet.multiView,
+    assetBase: flet.assetBase
+};
+if (flet.webRenderer != "auto") {
+    flutterConfig.renderer = flet.webRenderer;
 }
-if (globalThis.canvasKitBaseUrl) {
-    config.canvasKitBaseUrl = globalThis.canvasKitBaseUrl;
+if (flet.noCdn) {
+    flutterConfig.canvasKitBaseUrl = flet.canvasKitBaseUrl;
+    flutterConfig.fontFallbackBaseUrl = flet.fontFallbackBaseUrl;
 }
 
 _flutter.loader.load({
-    config: config,
+    config: flutterConfig,
     serviceWorkerSettings: {
-        serviceWorkerVersion: {{ '{{flutter_service_worker_version}}' }},
+        serviceWorkerVersion: {{flutter_service_worker_version}},
     },
     onEntrypointLoaded: async function (engineInitializer) {
-        const appRunner = await engineInitializer.initializeEngine({useColorEmoji: useColorEmoji});
-        await appRunner.runApp();
+        const engine = await engineInitializer.initializeEngine(flutterConfig);
+        flet.flutterApp = await engine.runApp();
+        flet.flutterAppResolve(flet.flutterApp);
     }
 });
