@@ -32,7 +32,7 @@ dependency_overrides:
   serious_python:
     git:
       url: https://github.com/flet-dev/serious-python.git
-      ref: main
+      ref: android-16k
       path: src/serious_python
 
   wakelock_plus: ^1.2.10
