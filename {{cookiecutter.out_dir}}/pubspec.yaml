@@ -40,6 +40,10 @@ dependency_overrides:
   window_manager: ^0.4.3
   webview_flutter_android: 4.10.1
 
+# {% if 'flet_webview' in cookiecutter.flutter.dependencies %}
+  #webview_flutter_android: 4.10.1
+# {% endif %}
+
 # {% if 'flet_audio_recorder' in cookiecutter.flutter.dependencies %}
   record: ^5.1.1
 # {% endif %}
