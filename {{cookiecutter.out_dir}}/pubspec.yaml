@@ -14,11 +14,11 @@ dependencies:
   serious_python: 0.9.6
 
   path: ^1.9.0
-  url_strategy: ^0.2.0
   cupertino_icons: ^1.0.6
   path_provider: ^2.1.4
-  package_info_plus: ^8.0.2
-  window_manager: ^0.4.3
+  package_info_plus: ^9.0.0
+  sensors_plus: ^6.1.1
+  window_manager: ^0.5.1
   
 dependency_overrides:
   #flet: 0.27.6
