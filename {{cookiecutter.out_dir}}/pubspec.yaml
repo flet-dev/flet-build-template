@@ -26,7 +26,7 @@ dependency_overrides:
   flet:
     git:
       path: packages/flet
-      ref: main
+      ref: sensors
       url: https://github.com/flet-dev/flet.git
 
   serious_python: 0.9.6
