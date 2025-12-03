@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   path_provider: ^2.1.4
   package_info_plus: ^9.0.0
+  screen_brightness: ^2.1.0
   sensors_plus: ^7.0.0
   url_strategy: ^0.2.0
   window_manager: ^0.5.1
@@ -27,7 +28,7 @@ dependency_overrides:
   flet:
     git:
       path: packages/flet
-      ref: sensors
+      ref: sensors-brightness
       url: https://github.com/flet-dev/flet.git
 
   serious_python: 0.9.6
