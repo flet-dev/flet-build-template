@@ -40,9 +40,7 @@ dependency_overrides:
   #     ref: fix-zip-directory
   #     path: src/serious_python
 
-  wakelock_plus: ^1.4.0
   package_info_plus: ^9.0.0
-  window_manager: ^0.5.1
 
 # {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
 #  geolocator: ^12.0.0
