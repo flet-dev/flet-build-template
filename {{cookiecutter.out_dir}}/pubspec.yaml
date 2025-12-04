@@ -16,6 +16,7 @@ dependencies:
   serious_python: 0.9.6
 
   battery_plus: ^6.2.2
+  connectivity_plus: ^6.1.2
   cupertino_icons: ^1.0.6
   device_info_plus: ^12.1.0
   file_picker: ^10.3.3
