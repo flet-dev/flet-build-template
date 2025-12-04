@@ -17,6 +17,7 @@ dependencies:
 
   path: ^1.9.0
   cupertino_icons: ^1.0.6
+  file_picker: ^10.3.3
   path_provider: ^2.1.4
   package_info_plus: ^9.0.0
   screen_brightness: ^2.1.0
@@ -43,7 +44,7 @@ dependency_overrides:
 
   package_info_plus: ^9.0.0
   wakelock_plus: ^1.4.0
-  
+
 # {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
 #  geolocator: ^12.0.0
 #  geolocator_android: ^4.6.0
