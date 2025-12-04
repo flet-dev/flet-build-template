@@ -134,7 +134,7 @@ Future prepareApp() async {
     pageUrl = Uri.base.toString();
     var routeUrlStrategy = getFletRouteUrlStrategy();
     if (routeUrlStrategy == "path") {
-      setPathUrlStrategy();
+      usePathUrlStrategy();
     }
   } else if (_args.isNotEmpty && isDesktopPlatform()) {
     // developer mode
