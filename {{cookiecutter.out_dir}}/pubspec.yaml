@@ -42,7 +42,8 @@ dependency_overrides:
   #     path: src/serious_python
 
   package_info_plus: ^9.0.0
-
+  wakelock_plus: ^1.4.0
+  
 # {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
 #  geolocator: ^12.0.0
 #  geolocator_android: ^4.6.0
