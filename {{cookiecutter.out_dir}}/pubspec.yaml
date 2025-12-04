@@ -26,6 +26,7 @@ dependencies:
   screen_brightness: ^2.1.0
   sensors_plus: ^7.0.0
   shared_preferences: 2.5.3
+  share_plus: ^12.0.1
   url_launcher: 6.3.2
   wakelock_plus: ^1.4.0
   window_manager: ^0.5.1
