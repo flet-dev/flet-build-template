@@ -45,7 +45,7 @@ dependency_overrides:
   serious_python:
     git:
       url: https://github.com/flet-dev/serious-python.git
-      ref: android-crash-fix
+      ref: android10-fix
       path: src/serious_python
 
   package_info_plus: ^9.0.0
