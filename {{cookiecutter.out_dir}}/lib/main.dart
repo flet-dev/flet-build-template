@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flet/flet.dart';
 import 'package:flutter/foundation.dart';
@@ -60,6 +61,13 @@ String pageUrl = "";
 String assetsDir = "";
 String appDir = "";
 Map<String, String> environmentVariables = {};
+final _random = Random();
+
+String _randomString(int length) {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  return String.fromCharCodes(Iterable.generate(
+      length, (_) => chars.codeUnitAt(_random.nextInt(chars.length))));
+}
 
 void main(List<String> args) async {
   _args = List<String>.from(args);
@@ -193,7 +201,8 @@ Future prepareApp() async {
       environmentVariables["FLET_SERVER_PORT"] = tcpPort.toString();
     } else {
       // use UDS on other platforms
-      pageUrl = "flet_$pid.sock";
+      var socketSuffix = _randomString(8);
+      pageUrl = "flet_${pid}_$socketSuffix.sock";
       environmentVariables["FLET_SERVER_UDS_PATH"] = pageUrl;
     }
   }
