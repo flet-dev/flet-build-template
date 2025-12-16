@@ -122,7 +122,7 @@ void main(List<String> args) async {
 Future prepareApp() async {
   if (!_args.contains("--debug") && isRelease) {
     // ignore: avoid_returning_null_for_void
-    //debugPrint = (String? message, {int? wrapWidth}) => null;
+    debugPrint = (String? message, {int? wrapWidth}) => null;
   } else {
     _args.remove("--debug");
   }
@@ -222,7 +222,7 @@ Future<String?> runPythonApp(List<String> args) async {
         'Python output TCP Server is listening on port ${outSocketServer.port}');
     socketAddr = "$tcpAddr:${outSocketServer.port}";
   } else {
-    socketAddr = "stdout_$pid.sock";
+    socketAddr = path.join(environmentVariables["FLET_APP_STORAGE_TEMP"], "stdout_$pid.sock");
     if (await File(socketAddr).exists()) {
       await File(socketAddr).delete();
     }
