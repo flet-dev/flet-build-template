@@ -222,7 +222,7 @@ Future<String?> runPythonApp(List<String> args) async {
         'Python output TCP Server is listening on port ${outSocketServer.port}');
     socketAddr = "$tcpAddr:${outSocketServer.port}";
   } else {
-    socketAddr = path.join(environmentVariables["FLET_APP_STORAGE_TEMP"], "stdout_$pid.sock");
+    socketAddr = path.join(environmentVariables["FLET_APP_STORAGE_TEMP"]!, "stdout_$pid.sock");
     if (await File(socketAddr).exists()) {
       await File(socketAddr).delete();
     }
