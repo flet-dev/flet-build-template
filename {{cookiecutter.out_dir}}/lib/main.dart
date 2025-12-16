@@ -122,7 +122,7 @@ void main(List<String> args) async {
 Future prepareApp() async {
   if (!_args.contains("--debug") && isRelease) {
     // ignore: avoid_returning_null_for_void
-    debugPrint = (String? message, {int? wrapWidth}) => null;
+    //debugPrint = (String? message, {int? wrapWidth}) => null;
   } else {
     _args.remove("--debug");
   }
