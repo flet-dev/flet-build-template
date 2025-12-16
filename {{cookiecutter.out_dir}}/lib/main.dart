@@ -193,8 +193,8 @@ Future prepareApp() async {
       environmentVariables["FLET_SERVER_PORT"] = tcpPort.toString();
     } else {
       // use UDS on other platforms
-      pageUrl = "flet_$pid.sock";
-      environmentVariables["FLET_SERVER_UDS_PATH"] = path.join(appTempPath, pageUrl);
+      pageUrl = path.join(appTempPath, "flet_$pid.sock");
+      environmentVariables["FLET_SERVER_UDS_PATH"] = pageUrl;
     }
   }
 
