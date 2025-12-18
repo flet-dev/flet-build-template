@@ -31,10 +31,14 @@ import 'package:{{ dep }}/{{ dep }}.dart' as {{ dep }};
 {% set startup_screen_message = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.startup_screen.message")
                         or get_pyproject("tool.flet.app.startup_screen.message") %}
 
+{% set hide_window_on_start = get_pyproject("tool.flet." ~ cookiecutter.options.config_platform ~ ".app.hide_window_on_start")
+                        or get_pyproject("tool.flet.app.hide_window_on_start") %}
+
 show_boot_screen: {{ show_boot_screen }}
 boot_screen_message: {{ boot_screen_message }}
 show_startup_screen: {{ show_startup_screen }}
 startup_screen_message: {{ startup_screen_message }}
+hide_window_on_start: {{ hide_window_on_start }}
 */
 
 const bool isRelease = bool.fromEnvironment('dart.vm.product');
@@ -45,6 +49,7 @@ final showAppBootScreen = bool.tryParse("{{ show_boot_screen }}".toLowerCase()) 
 const appBootScreenMessage = '{{ boot_screen_message | default("Preparing the app for its first launch…", true) }}';
 final showAppStartupScreen = bool.tryParse("{{ show_startup_screen }}".toLowerCase()) ?? false;
 const appStartupScreenMessage = '{{ startup_screen_message | default("Getting things ready…", true) }}';
+final hideWindowOnStart = bool.tryParse("{{ hide_window_on_start }}".toLowerCase()) ?? false;
 
 List<FletExtension> extensions = [
 {% for dep in cookiecutter.flutter.dependencies %}
@@ -127,7 +132,7 @@ Future prepareApp() async {
     _args.remove("--debug");
   }
 
-  await setupDesktop();
+  await setupDesktop(hideWindowOnStart: hideWindowOnStart);
 
   if (kIsWeb) {
     // web mode - connect via HTTP
