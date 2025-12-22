@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flet/flet.dart';
 import 'package:flutter/foundation.dart';
@@ -67,6 +68,13 @@ String appDir = "";
 Map<String, String> environmentVariables = {};
 
 void main(List<String> args) async {
+
+  PlatformDispatcher.instance.onRouteInformationUpdated =
+      (RouteInformation routeInformation) {
+    // This logs every incoming route/deeplink from the platform
+    print('📩 routeInformation: ${routeInformation.uri}');
+  };
+
   _args = List<String>.from(args);
 
   var devPageUrl = const String.fromEnvironment("FLET_PAGE_URL");
