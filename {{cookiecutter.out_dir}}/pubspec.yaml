@@ -13,7 +13,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
-  serious_python: 0.9.7
+  serious_python: 0.9.8
 
   battery_plus: ^7.0.0
   connectivity_plus: ^7.0.0
@@ -40,11 +40,11 @@ dependency_overrides:
       ref: main
       url: https://github.com/flet-dev/flet.git
 
-  serious_python:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      ref: android-logging-fix
-      path: src/serious_python
+  # serious_python:
+  #   git:
+  #     url: https://github.com/flet-dev/serious-python.git
+  #     ref: android-logging-fix
+  #     path: src/serious_python
 
   package_info_plus: ^9.0.0
   wakelock_plus: ^1.4.0
