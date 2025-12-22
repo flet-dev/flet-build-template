@@ -67,13 +67,20 @@ String assetsDir = "";
 String appDir = "";
 Map<String, String> environmentVariables = {};
 
+class RouteLogger with WidgetsBindingObserver {
+  @override
+  Future<bool> didPushRouteInformation(
+    RouteInformation routeInformation,
+  ) async {
+    debugPrint('📩 routeInformation: ${routeInformation.uri}');
+    return false; // return true only if YOU handled it and don't want default handling
+  }
+}
+
 void main(List<String> args) async {
 
-  PlatformDispatcher.instance.onRouteInformationUpdated =
-      (RouteInformation routeInformation) {
-    // This logs every incoming route/deeplink from the platform
-    print('📩 routeInformation: ${routeInformation.uri}');
-  };
+  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding.instance.addObserver(RouteLogger());
 
   _args = List<String>.from(args);
 
