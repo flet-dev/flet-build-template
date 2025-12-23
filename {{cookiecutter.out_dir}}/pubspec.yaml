@@ -37,7 +37,7 @@ dependency_overrides:
   flet:
     git:
       path: packages/flet
-      ref: deep-linking-fix
+      ref: deep-linking-fix-2
       url: https://github.com/flet-dev/flet.git
 
   # serious_python:
