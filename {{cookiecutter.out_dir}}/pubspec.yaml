@@ -40,11 +40,11 @@ dependency_overrides:
       ref: main
       url: https://github.com/flet-dev/flet.git
 
-  serious_python:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      ref: app-zip-windows-fix
-      path: src/serious_python
+  # serious_python:
+  #   git:
+  #     url: https://github.com/flet-dev/serious-python.git
+  #     ref: app-zip-windows-fix
+  #     path: src/serious_python
 
   package_info_plus: ^9.0.0
   wakelock_plus: ^1.4.0
