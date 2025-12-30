@@ -31,11 +31,11 @@ dependency_overrides:
 
   # serious_python: 0.9.6
 
-  # serious_python:
-  #   git:
-  #     url: https://github.com/flet-dev/serious-python.git
-  #     ref: android-crash-fix
-  #     path: src/serious_python
+  serious_python:
+    git:
+      url: https://github.com/flet-dev/serious-python.git
+      ref: app-zip-windows-fix
+      path: src/serious_python
 
   wakelock_plus: ^1.2.10
   web: ^1.0.0
