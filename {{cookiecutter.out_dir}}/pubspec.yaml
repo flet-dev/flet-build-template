@@ -32,13 +32,13 @@ dependencies:
   window_manager: ^0.5.1
   
 dependency_overrides:
-  #flet: 0.27.6
+  flet: 0.80.2
 
-  flet:
-    git:
-      path: packages/flet
-      ref: main
-      url: https://github.com/flet-dev/flet.git
+  # flet:
+  #   git:
+  #     path: packages/flet
+  #     ref: main
+  #     url: https://github.com/flet-dev/flet.git
 
   serious_python:
     git:
