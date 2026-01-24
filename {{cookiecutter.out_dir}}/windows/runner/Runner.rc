@@ -92,9 +92,9 @@ BEGIN
             VALUE "CompanyName", "{{ cookiecutter.company_name }}" "\0"
             VALUE "FileDescription", "{{ cookiecutter.product_name }}" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "{{ cookiecutter.project_name }}" "\0"
+            VALUE "InternalName", "{{ cookiecutter.artifact_name }}" "\0"
             VALUE "LegalCopyright", "{{ cookiecutter.copyright }}" "\0"
-            VALUE "OriginalFilename", "{{ cookiecutter.project_name }}.exe" "\0"
+            VALUE "OriginalFilename", "{{ cookiecutter.artifact_name }}.exe" "\0"
             VALUE "ProductName", "{{ cookiecutter.product_name }}" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
