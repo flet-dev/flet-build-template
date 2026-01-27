@@ -13,6 +13,7 @@ dependencies:
   
   serious_python: 0.9.8
 
+  file_picker: 10.3.8
   path: ^1.9.0
   url_strategy: ^0.2.0
   cupertino_icons: ^1.0.6
