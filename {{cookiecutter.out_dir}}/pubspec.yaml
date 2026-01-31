@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   
-  serious_python: 0.9.8
+  serious_python: 0.9.9
 
   path: ^1.9.0
   url_strategy: ^0.2.0
@@ -31,11 +31,11 @@ dependency_overrides:
 
   # serious_python: 0.9.6
 
-  serious_python:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      ref: app-zip-windows-fix
-      path: src/serious_python
+  # serious_python:
+  #   git:
+  #     url: https://github.com/flet-dev/serious-python.git
+  #     ref: app-zip-windows-fix
+  #     path: src/serious_python
 
   wakelock_plus: ^1.2.10
   web: ^1.0.0
