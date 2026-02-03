@@ -19,7 +19,7 @@ dependencies:
   connectivity_plus: ^7.0.0
   cupertino_icons: ^1.0.6
   device_info_plus: ^12.3.0
-  file_picker: ^10.3.3
+  file_picker: ^10.3.10
   package_info_plus: ^9.0.0
   path_provider: ^2.1.4
   path: ^1.9.0
@@ -33,18 +33,6 @@ dependencies:
   
 dependency_overrides:
   flet: 0.80.2
-
-  # flet:
-  #   git:
-  #     path: packages/flet
-  #     ref: main
-  #     url: https://github.com/flet-dev/flet.git
-
-  serious_python:
-    git:
-      url: https://github.com/flet-dev/serious-python.git
-      ref: cxx-20
-      path: src/serious_python
 
   package_info_plus: ^9.0.0
   wakelock_plus: ^1.4.0
