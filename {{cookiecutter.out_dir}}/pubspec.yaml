@@ -13,41 +13,13 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
+  flet: 0.80.5
   serious_python: 0.9.9
 
-  battery_plus: ^7.0.0
-  connectivity_plus: ^7.0.0
-  cupertino_icons: ^1.0.6
-  device_info_plus: ^12.3.0
-  file_picker: ^10.3.10
   package_info_plus: ^9.0.0
   path_provider: ^2.1.4
   path: ^1.9.0
-  screen_brightness: ^2.1.7
-  sensors_plus: ^7.0.0
-  shared_preferences: 2.5.3
-  share_plus: ^12.0.1
-  url_launcher: 6.3.2
-  wakelock_plus: ^1.4.0
   window_manager: ^0.5.1
-  
-dependency_overrides:
-  flet: 0.80.5
-
-  # flet:
-  #   git:
-  #     path: packages/flet
-  #     ref: main
-  #     url: https://github.com/flet-dev/flet.git
-
-  # serious_python:
-  #   git:
-  #     url: https://github.com/flet-dev/serious-python.git
-  #     ref: cxx-20
-  #     path: src/serious_python
-
-  package_info_plus: ^9.0.0
-  wakelock_plus: ^1.4.0
 
 # {% if 'flet_geolocator' in cookiecutter.flutter.dependencies %}
 #  geolocator: ^12.0.0
