@@ -2,8 +2,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-# The name of the executable created for the application. Change this to change
-# the on-disk name of your application.
+# The name of the application target. The on-disk name is set as OUTPUT_NAME to keep
+# Flutter tooling behavior intact.
 set(BINARY_NAME "{{ cookiecutter.project_name }}")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
@@ -84,6 +84,7 @@ add_dependencies(${BINARY_NAME} flutter_assemble)
 # the default top-level location.
 set_target_properties(${BINARY_NAME}
   PROPERTIES
+  OUTPUT_NAME "{{ cookiecutter.artifact_name }}"
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/intermediates_do_not_run"
 )
 

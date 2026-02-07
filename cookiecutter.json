@@ -4,6 +4,7 @@
     "project_name": "",
     "project_name_slug": "",
     "project_description": "",
+    "artifact_name": "{{ cookiecutter.project_name }}",
     "product_name": "{{ cookiecutter.project_name }}",
     "org_name": "{{ cookiecutter.org_name if 'org_name' in cookiecutter else 'com.flet' }}",
     "company_name": "Your Company",
