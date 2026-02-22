@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
 
   flet: 0.80.5
-  serious_python: 0.9.9
+  serious_python: 0.9.10
 
   package_info_plus: ^9.0.0
   path_provider: ^2.1.4
