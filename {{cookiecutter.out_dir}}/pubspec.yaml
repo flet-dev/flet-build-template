@@ -13,7 +13,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
-  flet: 0.80.5
+  flet: 0.81.0
   serious_python: 0.9.10
 
   package_info_plus: ^9.0.0
