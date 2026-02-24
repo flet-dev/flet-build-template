@@ -207,6 +207,10 @@ Future prepareApp() async {
     }
   }
 
+  if (!kIsWeb && assetsDir.isNotEmpty) {
+    environmentVariables["FLET_ASSETS_DIR"] = assetsDir;
+  }
+
   return "";
 }
 
