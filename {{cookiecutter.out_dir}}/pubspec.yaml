@@ -26,6 +26,9 @@ dependencies:
 #  geolocator_android: ^4.6.0
 # {% endif %}
 
+dependency_overrides:
+  flet: 0.81.0
+
 dev_dependencies:
   flutter_launcher_icons: ^0.14.1
   flutter_native_splash: ^2.4.1
