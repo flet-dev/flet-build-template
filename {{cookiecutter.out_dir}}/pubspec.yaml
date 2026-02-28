@@ -13,6 +13,8 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
+  cupertino_icons: ^1.0.8
+
   flet: 0.81.0
   serious_python: 0.9.10
 
