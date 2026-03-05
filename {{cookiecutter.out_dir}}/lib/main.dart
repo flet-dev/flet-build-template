@@ -101,6 +101,10 @@ void main(List<String> args) async {
                     if (snapshot.hasData || snapshot.hasError) {
                       // error or premature finish
                       return MaterialApp(
+                        onGenerateRoute: (_) => MaterialPageRoute(
+                            builder: (_) => ErrorScreen(
+                                title: "Error running app",
+                                text: snapshot.data ?? snapshot.error.toString())),
                         home: ErrorScreen(
                             title: "Error running app",
                             text: snapshot.data ?? snapshot.error.toString()),
@@ -118,12 +122,19 @@ void main(List<String> args) async {
         } else if (snapshot.hasError) {
           // error
           return MaterialApp(
+              onGenerateRoute: (_) => MaterialPageRoute(
+                  builder: (_) => ErrorScreen(
+                      title: "Error starting app",
+                      text: snapshot.error.toString())),
               home: ErrorScreen(
                   title: "Error starting app",
                   text: snapshot.error.toString()));
         } else {
           // loading
-          return MaterialApp(home: showAppBootScreen ? const BootScreen() : const BlankScreen());
+          final screen = showAppBootScreen ? const BootScreen() : const BlankScreen();
+          return MaterialApp(
+              onGenerateRoute: (_) => MaterialPageRoute(builder: (_) => screen),
+              home: screen);
         }
       }));
 }
