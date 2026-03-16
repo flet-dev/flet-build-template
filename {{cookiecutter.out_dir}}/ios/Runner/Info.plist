@@ -75,6 +75,10 @@
 		<string>{{ value }}</string>
 		{% elif value is boolean -%}
 		<{{ "true" if value else "false" }}/>
+		{% elif value is integer -%}
+		<integer>{{ value }}</integer>
+		{% elif value is float -%}
+		<real>{{ value }}</real>
 		{% elif value is mapping -%}
 		<dict>
 			{{ render_dict(value) }}
@@ -86,6 +90,10 @@
 				<string>{{ item }}</string>
 				{% elif item is boolean -%}
 				<{{ "true" if item else "false" }}/>
+				{% elif item is integer -%}
+				<integer>{{ item }}</integer>
+				{% elif item is float -%}
+				<real>{{ item }}</real>
 				{% elif item is mapping -%}
 				<dict>
 					{{ render_dict(item) }}
