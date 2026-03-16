@@ -59,22 +59,26 @@ self.initPyodide = async function () {
         async def ensure_micropip():
             try:
                 import micropip
-            except Exception:
+            except ImportError:
                 import pyodide_js
-                await pyodide_js.loadPackage('micropip')
+                await pyodide_js.loadPackage("micropip")
+                import micropip
+            return micropip
 
         if os.path.exists("requirements.txt"):
-            await ensure_micropip()
-            import micropip
             with open("requirements.txt", "r") as f:
-                deps = [line.rstrip() for line in f]
+                deps = [
+                    line
+                    for req in f
+                    if (line := req.strip()) and not line.startswith("#")
+                ]
                 if deps:
+                    micropip = await ensure_micropip()
                     print("Loading requirements.txt:", deps)
                     await micropip.install(deps, pre=micropip_include_pre)
 
         if "dependencies" in py_args:
-            await ensure_micropip()
-            import micropip
+            micropip = await ensure_micropip()
             await micropip.install(py_args["dependencies"], pre=micropip_include_pre)
 
         # Execute app
