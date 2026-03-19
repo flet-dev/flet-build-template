@@ -68,13 +68,15 @@
 		</array>
 		<!-- flet: end of deep linking {% endif %} -->
 
-		{% macro render_dict(d) -%}
-		{% for key, value in d.items() -%}
-		<key>{{ key }}</key>
+		{% macro render_value(value) -%}
 		{% if value is string -%}
 		<string>{{ value }}</string>
 		{% elif value is boolean -%}
 		<{{ "true" if value else "false" }}/>
+		{% elif value is integer -%}
+		<integer>{{ value }}</integer>
+		{% elif value is float -%}
+		<real>{{ value }}</real>
 		{% elif value is mapping -%}
 		<dict>
 			{{ render_dict(value) }}
@@ -82,18 +84,15 @@
 		{% elif value is sequence -%}  {# Support for lists/arrays #}
 		<array>
 			{% for item in value -%}
-				{% if item is string -%}
-				<string>{{ item }}</string>
-				{% elif item is boolean -%}
-				<{{ "true" if item else "false" }}/>
-				{% elif item is mapping -%}
-				<dict>
-					{{ render_dict(item) }}
-				</dict>
-				{% endif -%}
+				{{ render_value(item) }}
 			{% endfor -%}
 		</array>
 		{% endif -%}
+		{% endmacro -%}
+		{% macro render_dict(d) -%}
+		{% for key, value in d.items() -%}
+		<key>{{ key }}</key>
+		{{ render_value(value) }}
 		{% endfor -%}
 		{% endmacro -%}
 		{{ render_dict(cookiecutter.options.info_plist) }}
